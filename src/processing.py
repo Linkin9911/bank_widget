@@ -1,7 +1,7 @@
 from typing import List, Dict, Any
 
-def filter_by_state(transactions: List[Dict[str, Any]], state: str = 'EXECUTED') -> List[Dict[str, Any]]:
+def sort_by_date(transactions: List[Dict[str, Any]], reverse: bool = True) -> List[Dict[str, Any]]:
     """
-    Фильтрует список транзакций по значению ключа 'state'.
+    Сортирует список транзакций по дате ('date').
     """
-    return [t for t in transactions if t.get('state') == state]
+    return sorted(transactions, key=lambda x: x['date'], reverse=reverse)
